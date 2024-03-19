@@ -51,7 +51,7 @@ end)
 spawn(function() 
     wait(1)
     while getgenv().LoopAutofarm do 
-        wait(5)
+        wait(2)
         if game.Workspace.part or woah == nil then
 woah = Instance.new('Part', game.Workspace)
 woah.Name = "part"
@@ -76,7 +76,7 @@ end)
 spawn(function() 
     wait(1)
     while getgenv().LoopAutofarm do
-        wait(10)
+        wait(2)
         sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
     end
 end)
