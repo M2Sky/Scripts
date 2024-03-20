@@ -74,17 +74,16 @@ end)
 
 
 spawn(function() 
-    wait(1)
+    wait(0.6)
     while getgenv().LoopAutofarm do
-        wait(0.7)
         sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
-        wait(0.2)
+        task.wait(0.2)
         sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(297, -392, 499)
-        wait(0.1)
+        task.wait(0.1)
         sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(294, -392, 571)
-        wait(0.5)
+        task.wait(0.5)
         sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(297, -392, 499)
-        wait(0.4)
+        task.wait(1)
         sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(294, -392, 571)
     end
 end)
