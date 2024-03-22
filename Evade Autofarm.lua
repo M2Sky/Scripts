@@ -48,7 +48,7 @@ spawn(function()
 end)
 
 spawn(function() 
-    wait(0.2)
+    wait(0.4)
     while getgenv().LoopAutofarm do 
         wait(1)
         if game.Workspace.part or woah == nil then
