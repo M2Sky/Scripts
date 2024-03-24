@@ -30,7 +30,7 @@ while getgenv().LoopAutofarm do
     sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
     task.wait()
     sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(v:WaitForChild('HumanoidRootPart').Position)
-    task.wait(0.3)
+    task.wait(0.8)
     sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
 end
 end
@@ -39,7 +39,7 @@ end)
 
 spawn(function() 
     while getgenv().LoopAutofarm do
-        wait(0.7)
+        task.wait(0.7)
     if sheesh.Character and sheesh.Character:GetAttribute("Downed") then
             game:GetService("ReplicatedStorage").Events.Respawn:FireServer()
             task.wait(3)
@@ -48,9 +48,9 @@ spawn(function()
 end)
 
 spawn(function() 
-    wait(0.4)
+    task.wait(0.4)
     while getgenv().LoopAutofarm do 
-        wait(1)
+        task.wait(1)
         if game.Workspace.part or woah == nil then
 woah = Instance.new('Part', game.Workspace)
 woah.Name = "part"
@@ -73,10 +73,10 @@ end)
 
 
 spawn(function() 
-    wait(0.6)
+    task.wait(0.6)
     while getgenv().LoopAutofarm do
         sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
-        task.wait(0.2)
+        task.wait(0.5)
         sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(297, -410, 499)
     end
 end)
