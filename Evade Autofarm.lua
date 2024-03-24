@@ -24,13 +24,13 @@ part.CFrame = CFrame.new(308, -397, 544)
 spawn(function() 
     
 while getgenv().LoopAutofarm do
-    wait(0.4)
+    task.wait(0.4)
     for i,v in pairs(game:GetService("Workspace").Game.Effects.Tickets:GetChildren()) do
     if v.HumanoidRootPart ~= nil and game.Players.LocalPlayer:GetAttribute('InMenu') ~= true then
     sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
-    wait()
+    task.wait()
     sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(v:WaitForChild('HumanoidRootPart').Position)
-    wait(0.3)
+    task.wait(0.3)
     sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
 end
 end
@@ -77,12 +77,6 @@ spawn(function()
     while getgenv().LoopAutofarm do
         sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
         task.wait(0.2)
-        sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(297, -392, 499)
-        task.wait(0.1)
-        sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(294, -392, 571)
-        task.wait(0.5)
-        sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(297, -392, 499)
-        task.wait(1)
-        sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(294, -392, 571)
+        sheesh.Character.HumanoidRootPart.CFrame = CFrame.new(297, -410, 499)
     end
 end)
