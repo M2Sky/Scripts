@@ -1,5 +1,3 @@
--- Not made by me
-
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -15,6 +13,11 @@ part.CFrame = CFrame.new(308, -397, 544)
 
 local LoopAutofarm = getgenv().LoopAutofarm
 local HumanoidRootPart = sheesh.Character and sheesh.Character:WaitForChild("HumanoidRootPart")
+
+local function ResetAutofarm()
+    task.wait(8) -- Wait for 8 seconds before resetting
+    LoopAutofarm = true -- Set LoopAutofarm to true to restart the autofarm
+end
 
 spawn(function()
     while LoopAutofarm do
@@ -37,7 +40,7 @@ spawn(function()
         task.wait(1)
         if sheesh.Character and sheesh.Character:GetAttribute("Downed") then
             ReplicatedStorage.Events.Respawn:FireServer()
-            task.wait(3)
+            ResetAutofarm() -- Call the function to reset the autofarm loop
         end
     end
 end)
@@ -62,7 +65,11 @@ spawn(function()
     task.wait(0.6)
     while LoopAutofarm do
         HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
-        task.wait(0.5)
-        HumanoidRootPart.CFrame = CFrame.new(297, -410, 499)
+        task.wait(0.8)
+        HumanoidRootPart.CFrame = CFrame.new(297, -397, 499)
+        task.wait(0.8)
+        HumanoidRootPart.CFrame = CFrame.new(413, 100, 544)
+        task.wait(0.8)
+        HumanoidRootPart.CFrame = CFrame.new(394, -200, 499)
     end
 end)
