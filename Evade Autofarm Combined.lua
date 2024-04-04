@@ -1,19 +1,41 @@
+
+repeat wait() until game:IsLoaded()
+
 local function executeScript(script)
     local success, result = pcall(loadstring(script))
     return success, result
 end
-
-game.Loaded:Wait()
 
 game:GetService("ReplicatedStorage").Events.Respawn:FireServer()
 wait(10)
 
 getgenv().LoopAutofarm = true
 
-local success, error = executeScript(game:HttpGet("https://raw.githubusercontent.com/M2Sky/Scripts/main/Evade%20Autofarm.lua"))
-if not success then
-    warn("Evade Autofarm script failed to execute:", error)
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local lastPosition = LocalPlayer.Character and LocalPlayer.Character.HumanoidRootPart.Position
+local stationaryTime = 0
+
+while true do
+    wait(1)
+
+    local currentPosition = LocalPlayer.Character and LocalPlayer.Character.HumanoidRootPart.Position
+
+    if currentPosition and lastPosition and currentPosition == lastPosition then
+        stationaryTime = stationaryTime + 1
+
+        if stationaryTime >= 15 then
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/M2Sky/Scripts/main/Evade%20Autofarm.lua'))()
+            stationaryTime = 0
+        end
+    else
+        stationaryTime = 0
+    end
+
+    lastPosition = currentPosition
 end
+
 
 local Player = game.Players.LocalPlayer    
 local Http = game:GetService("HttpService")
