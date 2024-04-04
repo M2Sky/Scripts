@@ -19,6 +19,27 @@ local function ResetAutofarm()
     LoopAutofarm = true -- Set LoopAutofarm to true to restart the autofarm
 end
 
+local function SamePositionCheck()
+    local currentPos = HumanoidRootPart.Position
+    task.wait(1) -- Initial wait before checking
+    local timeElapsed = 1 -- Start counting from 1 second
+    while LoopAutofarm do
+        task.wait(1)
+        if currentPos == HumanoidRootPart.Position then
+            timeElapsed = timeElapsed + 1
+            if timeElapsed >= 10 then
+                ResetAutofarm() -- Call the function to reset the autofarm loop
+                break -- Exit the loop if reset is triggered
+            end
+        else
+            currentPos = HumanoidRootPart.Position
+            timeElapsed = 1 -- Reset time elapsed
+        end
+    end
+end
+
+spawn(SamePositionCheck)
+
 spawn(function()
     while LoopAutofarm do
         task.wait(0.4)
