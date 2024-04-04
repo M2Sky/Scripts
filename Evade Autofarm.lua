@@ -92,6 +92,6 @@ spawn(function()
         HumanoidRootPart.CFrame = CFrame.new(413, 100, 544)
         task.wait(4)
         HumanoidRootPart.CFrame = CFrame.new(394, -200, 499)
-        task.wait(9)
+        task.wait(7)
     end
 end)
