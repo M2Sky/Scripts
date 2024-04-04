@@ -13,7 +13,7 @@ getgenv().LoopAutofarm = true
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/M2Sky/Scripts/main/Evade%20Autofarm.lua'))()
 local lastPosition = LocalPlayer.Character and LocalPlayer.Character.HumanoidRootPart.Position
 local stationaryTime = 0
 
