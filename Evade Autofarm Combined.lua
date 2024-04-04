@@ -49,7 +49,7 @@ function ListServers(cursor)
    return Http:JSONDecode(Raw)
 end
 
-time_to_wait = 250
+time_to_wait = 160
 while wait(time_to_wait) do
    Player.Character.HumanoidRootPart.Anchored = true
    local Servers = ListServers()
