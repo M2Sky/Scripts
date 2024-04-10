@@ -1,97 +1,85 @@
-local Players = game:GetService("Players")
-local Workspace = game:GetService("Workspace")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local sheesh = Players.LocalPlayer
+local nigga = game:GetService("Players").LocalPlayer
 
-local part = Instance.new('Part', Workspace)
-part.Name = "part"
-part.Size = Vector3.new(100000, 5, 100000)
-part.Color = Color3.fromRGB(100, 166, 200)
-part.Anchored = true
-part.Transparency = 0
-part.CFrame = CFrame.new(308, -397, 544)
+woah = Instance.new('Part', game.Workspace)
+woah.Name = "WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE"
+woah.Size = Vector3.new(100000,5,100000)
+woah.Color = Color3.fromRGB(100,166,200)
+woah.Anchored = true
+woah.Transparency = 0 --set to whatever lol
+woah.CFrame = CFrame.new(308, -397, 544)
 
-local LoopAutofarm = getgenv().LoopAutofarm
-local HumanoidRootPart = sheesh.Character and sheesh.Character:WaitForChild("HumanoidRootPart")
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE = Instance.new('Part', game.Workspace)
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Name = "WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE"
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Size = Vector3.new(100000,5,100000)
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Color = Color3.fromRGB(100,166,200)
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Anchored = true
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Transparency = 0
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.CFrame = CFrame.new(308, -397, 544)
 
-local function ResetAutofarm()
-    task.wait(8) -- Wait for 8 seconds before resetting
-    LoopAutofarm = true -- Set LoopAutofarm to true to restart the autofarm
-end
 
-local function SamePositionCheck()
-    local currentPos = HumanoidRootPart.Position
-    task.wait(1) -- Initial wait before checking
-    local timeElapsed = 1 -- Start counting from 1 second
-    while LoopAutofarm do
-        task.wait(1)
-        if currentPos == HumanoidRootPart.Position then
-            timeElapsed = timeElapsed + 1
-            if timeElapsed >= 10 then
-                ResetAutofarm() -- Call the function to reset the autofarm loop
-                break -- Exit the loop if reset is triggered
-            end
-        else
-            currentPos = HumanoidRootPart.Position
-            timeElapsed = 1 -- Reset time elapsed
-        end
-    end
-end
 
-spawn(SamePositionCheck)
-
-spawn(function()
-    while LoopAutofarm do
-        task.wait(0.4)
-        for _, v in ipairs(Workspace.Game.Effects.Tickets:GetChildren()) do
-            if v.HumanoidRootPart and not sheesh:GetAttribute('InMenu') then
-                HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
-                task.wait()
-                HumanoidRootPart.CFrame = CFrame.new(v.HumanoidRootPart.Position)
-                task.wait(0.8)
-                HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
+local function AutoFarm()
+    while true do
+        wait(1)
+        for i,v in pairs(game:GetService("Workspace").Game.Effects.Tickets:GetChildren()) do
+            if v.HumanoidRootPart ~= nil and game.Players.LocalPlayer:GetAttribute('InMenu') ~= true then
+                local nigga = game.Players.LocalPlayer.Character -- Assuming nigga is the local player's character
+                nigga.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
+                wait(1)
+                nigga.HumanoidRootPart.CFrame = CFrame.new(v:WaitForChild('HumanoidRootPart').Position)
+                wait(0.5)
+                nigga.HumanoidRootPart.CFrame = CFrame.new(308, -397, 544)
+                wait(1)
             end
         end
     end
-end)
+end
+wait(1)
+spawn(AutoFarm)
 
-spawn(function()
-    task.wait(0.7)
-    while LoopAutofarm do
-        task.wait(1)
-        if sheesh.Character and sheesh.Character:GetAttribute("Downed") then
-            ReplicatedStorage.Events.Respawn:FireServer()
-            ResetAutofarm() -- Call the function to reset the autofarm loop
-        end
+
+spawn(function() 
+    while getgenv().LoopAutofarm do  --instant respawn when downed for safety
+        wait(1)
+    if nigga.Character and nigga.Character:GetAttribute("Downed") then
+            game:GetService("ReplicatedStorage").Events.Respawn:FireServer()
+            task.wait(3)
+spawn(AutoFarm)
+            end
     end
 end)
 
-spawn(function()
-    task.wait(0.4)
-    while LoopAutofarm do
-        task.wait(1)
-        if not part or part.Parent == nil then
-            part = Instance.new('Part', Workspace)
-            part.Name = "part"
-            part.Size = Vector3.new(100000, 5, 100000)
-            part.Color = Color3.fromRGB(100, 166, 200)
-            part.Anchored = true
-            part.Transparency = 0
-            part.CFrame = CFrame.new(308, -397, 544)
-        end
+spawn(function() 
+    wait(1)
+    while getgenv().LoopAutofarm do 
+        wait(5)--checking if part destroyed for safe autofarm
+        if game.Workspace.WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE or woah == nil then
+woah = Instance.new('Part', game.Workspace)
+woah.Name = "WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE"
+woah.Size = Vector3.new(100000,5,100000)
+woah.Color = Color3.fromRGB(100,166,200)
+woah.Anchored = true
+woah.Transparency = 0 
+woah.CFrame = CFrame.new(308, -397, 544)
+
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE = Instance.new('Part', game.Workspace)
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Name = "WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE"
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Size = Vector3.new(100000,5,100000)
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Color = Color3.fromRGB(100,166,200)
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Anchored = true
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.Transparency = 0
+WEWEWEWEWEWEWEWWEWEWBATUYSWASHERE.CFrame = CFrame.new(308, -397, 544)
+end
     end
 end)
 
-spawn(function()
-    task.wait(0.6)
-    while LoopAutofarm do
-        HumanoidRootPart.CFrame = CFrame.new(308, 900, 544)
-        task.wait(0.8)
-        HumanoidRootPart.CFrame = CFrame.new(297, -397, 499)
-        task.wait(0.8)
-        HumanoidRootPart.CFrame = CFrame.new(413, 100, 544)
-        task.wait(4)
-        HumanoidRootPart.CFrame = CFrame.new(394, -200, 499)
-        task.wait(6)
+
+spawn(function() 
+    wait(1)
+    while getgenv().LoopAutofarm do --for safety
+        wait(10)
+        nigga.Character.HumanoidRootPart.CFrame = CFrame.new(308, 10000, 544)
+        wait(10)
+        nigga.Character.HumanoidRootPart.CFrame = CFrame.new(931, 769, 521)
     end
 end)
